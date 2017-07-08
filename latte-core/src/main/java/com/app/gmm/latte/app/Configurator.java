@@ -4,6 +4,7 @@ import com.joanzapata.iconify.IconFontDescriptor;
 import com.joanzapata.iconify.Iconify;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.WeakHashMap;
 
 /**
@@ -11,14 +12,14 @@ import java.util.WeakHashMap;
  */
 
 public class Configurator {
-    public static final WeakHashMap<String, Object> LATTE_CONFIGS = new WeakHashMap<>();
+    public static final HashMap<String, Object> LATTE_CONFIGS = new HashMap<>();
     private static final ArrayList<IconFontDescriptor> ICONS = new ArrayList<>();
 
     private Configurator() {
         LATTE_CONFIGS.put(ConfigType.CONFIG_READY.name(), false);
     }
 
-    public static WeakHashMap<String, Object> getLatteConfigs() {
+    public static HashMap<String, Object> getLatteConfigs() {
         return LATTE_CONFIGS;
     }
 
@@ -58,9 +59,11 @@ public class Configurator {
     }
 
     private void initIcons() {
-        final Iconify.IconifyInitializer initializer = Iconify.with(ICONS.get(0));
-        for (int i = 1; i < ICONS.size(); i++) {
-            initializer.with(ICONS.get(i));
+        if (ICONS.size() > 0) {
+            final Iconify.IconifyInitializer initializer = Iconify.with(ICONS.get(0));
+            for (int i = 1; i < ICONS.size(); i++) {
+                initializer.with(ICONS.get(i));
+            }
         }
     }
 }
