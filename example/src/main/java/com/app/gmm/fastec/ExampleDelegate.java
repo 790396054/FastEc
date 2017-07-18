@@ -32,7 +32,7 @@ public class ExampleDelegate extends LatteDelegate {
 
     private void test() {
         RestClient.builder()
-                .url("http://news.baidu.com")
+                .url("http://127.0.0.1/index")
                 .success(new ISuccess() {
                     @Override
                     public void onSuccess(String response) {
@@ -43,13 +43,13 @@ public class ExampleDelegate extends LatteDelegate {
                 .error(new IError() {
                     @Override
                     public void onError(int code, String msg) {
-
+                        Log.d(TAG, code + "==" + msg);
                     }
                 })
                 .failure(new IFailure() {
                     @Override
                     public void onFailure() {
-
+                        Log.d(TAG, "onFailure()");
                     }
                 })
                 .loader(getContext(), LoaderStyle.BallPulseIndicator)
