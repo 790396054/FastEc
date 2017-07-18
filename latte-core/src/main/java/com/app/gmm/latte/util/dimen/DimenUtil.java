@@ -1,4 +1,4 @@
-package com.app.gmm.latte.util;
+package com.app.gmm.latte.util.dimen;
 
 import android.content.res.Resources;
 import android.util.DisplayMetrics;
