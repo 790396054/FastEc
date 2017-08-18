@@ -1,4 +1,4 @@
-package com.app.gmm.latte.ui;
+package com.app.gmm.latte.ui.loader;
 
 import android.content.Context;
 

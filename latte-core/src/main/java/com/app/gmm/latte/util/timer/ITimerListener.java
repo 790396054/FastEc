@@ -5,5 +5,5 @@ package com.app.gmm.latte.util.timer;
  */
 
 public interface ITimerListener {
-    void onTimerTask();
+    void onTimer();
 }

@@ -6,7 +6,7 @@ import com.app.gmm.latte.net.callBack.IError;
 import com.app.gmm.latte.net.callBack.IFailure;
 import com.app.gmm.latte.net.callBack.IRequest;
 import com.app.gmm.latte.net.callBack.ISuccess;
-import com.app.gmm.latte.ui.LoaderStyle;
+import com.app.gmm.latte.ui.loader.LoaderStyle;
 
 import java.io.File;
 import java.util.Map;

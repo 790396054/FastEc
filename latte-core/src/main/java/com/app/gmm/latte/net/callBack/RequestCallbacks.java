@@ -2,8 +2,8 @@ package com.app.gmm.latte.net.callBack;
 
 import android.os.Handler;
 
-import com.app.gmm.latte.ui.LatteLoader;
-import com.app.gmm.latte.ui.LoaderStyle;
+import com.app.gmm.latte.ui.loader.LatteLoader;
+import com.app.gmm.latte.ui.loader.LoaderStyle;
 
 import retrofit2.Call;
 import retrofit2.Callback;

@@ -1,4 +1,4 @@
-package com.app.gmm.latte.ui;
+package com.app.gmm.latte.ui.loader;
 
 /**
  * Created by gmm on 2017/7/9.

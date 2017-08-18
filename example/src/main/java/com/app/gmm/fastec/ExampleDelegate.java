@@ -10,7 +10,7 @@ import com.app.gmm.latte.net.RestClient;
 import com.app.gmm.latte.net.callBack.IError;
 import com.app.gmm.latte.net.callBack.IFailure;
 import com.app.gmm.latte.net.callBack.ISuccess;
-import com.app.gmm.latte.ui.LoaderStyle;
+import com.app.gmm.latte.ui.loader.LoaderStyle;
 
 /**
  * Created by gmm on 2017/7/8.
