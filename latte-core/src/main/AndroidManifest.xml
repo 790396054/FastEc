@@ -10,6 +10,8 @@
         android:supportsRtl="true"
         >
 
+        <activity android:name=".wechat.templates.WXEntryTemplate"/>
+        <receiver android:name=".wechat.templates.AppRegisterTemplate"/>
     </application>
 
 </manifest>
