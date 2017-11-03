@@ -14,6 +14,8 @@ import com.app.gmm.latte.ec.R2;
 import com.app.gmm.latte.net.RestClient;
 import com.app.gmm.latte.net.callBack.ISuccess;
 import com.app.gmm.latte.util.log.LatteLogger;
+import com.app.gmm.latte.wechat.LatteWeChat;
+import com.app.gmm.latte.wechat.callbacks.IWeChatSignInCallback;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -61,7 +63,12 @@ public class SignInDelegate extends LatteDelegate {
 
     @OnClick(R2.id.icon_sign_in_wechat)
     void onClickWeChatSignIn(){
-
+        LatteWeChat.getInstance().onSignInSuccess(new IWeChatSignInCallback() {
+            @Override
+            public void onSignInSuccess(String userInfo) {
+                Toast.makeText(getContext(),userInfo, Toast.LENGTH_LONG).show();
+            }
+        }).signIn();
     }
 
     @OnClick(R2.id.tv_link_sign_up)
