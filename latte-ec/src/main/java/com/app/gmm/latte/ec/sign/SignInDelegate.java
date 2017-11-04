@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.app.gmm.latte.delegates.LatteDelegate;
 import com.app.gmm.latte.ec.R;
 import com.app.gmm.latte.ec.R2;
+import com.app.gmm.latte.ec.main.EcBottomDelegate;
 import com.app.gmm.latte.net.RestClient;
 import com.app.gmm.latte.net.callBack.ISuccess;
 import com.app.gmm.latte.util.log.LatteLogger;
@@ -57,6 +58,7 @@ public class SignInDelegate extends LatteDelegate {
                     })
                     .build()
                     .post();
+            startWithPop(new EcBottomDelegate());
             Toast.makeText(getContext(), "验证通过", Toast.LENGTH_SHORT).show();
         }
     }

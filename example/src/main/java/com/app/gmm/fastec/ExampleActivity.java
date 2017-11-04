@@ -9,6 +9,7 @@ import com.app.gmm.latte.activities.ProxyActivity;
 import com.app.gmm.latte.app.Latte;
 import com.app.gmm.latte.delegates.LatteDelegate;
 import com.app.gmm.latte.ec.launcher.LauncherDelegate;
+import com.app.gmm.latte.ec.main.EcBottomDelegate;
 import com.app.gmm.latte.ec.sign.ISignListener;
 import com.app.gmm.latte.ec.sign.SignInDelegate;
 import com.app.gmm.latte.ui.launcher.ILauncherListener;
@@ -34,7 +35,7 @@ public class ExampleActivity extends ProxyActivity implements ISignListener, ILa
 
     @Override
     public void onSignInSuccess() {
-        Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "登录成功2", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -47,7 +48,7 @@ public class ExampleActivity extends ProxyActivity implements ISignListener, ILa
         switch (tag) {
             case SIGNED:
                 Toast.makeText(this, "启动结束，登陆了", Toast.LENGTH_SHORT).show();
-                startWithPop(new ExampleDelegate());
+                startWithPop(new EcBottomDelegate());
                 break;
             case NOT_SIGNED:
                 Toast.makeText(this, "启动结束，没有登录", Toast.LENGTH_SHORT).show();

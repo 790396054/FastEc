@@ -20,7 +20,7 @@ public class LatteWeChat {
 
     private IWeChatSignInCallback mSignInCallback;
 
-    // IWXAPI 是第三方 APP 和微信同学的 openapi 接口
+    // IWXAPI 是第三方 APP 和微信通信的 openapi 接口
     private final IWXAPI WXAPI;
 
     private static final class Holder{
