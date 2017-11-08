@@ -3,6 +3,7 @@ package com.app.gmm.latte.delegates.bottom;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.LinearLayoutCompat;
@@ -30,8 +31,8 @@ import me.yokeyword.fragmentation.ISupportFragment;
 
 public abstract class BaseBottomDelegate extends LatteDelegate implements View.OnClickListener{
 
-    private final List<BottomTabBean> TAB_BEANS = new ArrayList<>();
-    private final List<BottomItemDelegate> ITEM_DELEGATES = new ArrayList<>();
+    private final ArrayList<BottomTabBean> TAB_BEANS = new ArrayList<>();
+    private final ArrayList<BottomItemDelegate> ITEM_DELEGATES = new ArrayList<>();
     private final LinkedHashMap<BottomTabBean, BottomItemDelegate> ITEMS = new LinkedHashMap<>();
     private int mCurrentDelegate = 0;
     private int mIndexDelegate = 0;
@@ -55,25 +56,25 @@ public abstract class BaseBottomDelegate extends LatteDelegate implements View.O
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mCurrentDelegate = setIndexDelegate();
+        mIndexDelegate = setIndexDelegate();
         if (setClickedColor() != 0) {
             mClickedColor = setClickedColor();
         }
+
         final ItemBuilder builder = ItemBuilder.builder();
-        ITEMS.putAll(setItems(builder));
+        final LinkedHashMap<BottomTabBean, BottomItemDelegate> items = setItems(builder);
+        ITEMS.putAll(items);
         for (Map.Entry<BottomTabBean, BottomItemDelegate> item : ITEMS.entrySet()) {
-            final BottomTabBean tabBean = item.getKey();
-            final BottomItemDelegate itemDelegate = item.getValue();
-            TAB_BEANS.add(tabBean);
-            ITEM_DELEGATES.add(itemDelegate);
+            final BottomTabBean key = item.getKey();
+            final BottomItemDelegate value = item.getValue();
+            TAB_BEANS.add(key);
+            ITEM_DELEGATES.add(value);
         }
     }
 
     @Override
-    public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
+    public void onBindView(@Nullable Bundle savedInstanceState, @NonNull View rootView) {
         final int size = ITEMS.size();
-        LatteLogger.d("onBindView");
-
         for (int i = 0; i < size; i++) {
             LayoutInflater.from(getContext()).inflate(R.layout.bottom_item_icon_text_layout, mBottomBar);
             final RelativeLayout item = (RelativeLayout) mBottomBar.getChildAt(i);
@@ -90,9 +91,10 @@ public abstract class BaseBottomDelegate extends LatteDelegate implements View.O
                 itemIcon.setTextColor(mClickedColor);
                 itemTitle.setTextColor(mClickedColor);
             }
-            final ISupportFragment[] delegateArray = ITEM_DELEGATES.toArray(new ISupportFragment[size]);
-            getSupportDelegate().loadMultipleRootFragment(R.id.bottom_bar_delegate_container, mIndexDelegate, delegateArray);
         }
+
+        final ISupportFragment[] delegateArray = ITEM_DELEGATES.toArray(new ISupportFragment[size]);
+        getSupportDelegate().loadMultipleRootFragment(R.id.bottom_bar_delegate_container, mIndexDelegate, delegateArray);
     }
 
     private void resetColor() {

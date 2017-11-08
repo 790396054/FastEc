@@ -52,7 +52,8 @@ public class ExampleActivity extends ProxyActivity implements ISignListener, ILa
                 break;
             case NOT_SIGNED:
                 Toast.makeText(this, "启动结束，没有登录", Toast.LENGTH_SHORT).show();
-                startWithPop(new SignInDelegate());
+//                startWithPop(new SignInDelegate());
+                startWithPop(new EcBottomDelegate());
                 break;
             default:
                 break;

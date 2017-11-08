@@ -28,7 +28,7 @@ public class RestCreator {
         return RestCreatorHolder.PARAMS;
     }
 
-    public static RestService  getRestService() {
+    public static RestService getRestService() {
         return RestServiceHolder.REST_SERVICE;
     }
 
@@ -50,6 +50,7 @@ public class RestCreator {
         private static final OkHttpClient.Builder BUILDER = new OkHttpClient.Builder();
         private static final ArrayList<Interceptor> INTERCEPTORS = Latte.getConfiguration(ConfigKeys.INTERCEPTOR);
 
+        // 添加拦截器
         private static OkHttpClient.Builder addInterceptor() {
             if (INTERCEPTORS != null && !INTERCEPTORS.isEmpty()) {
                 for (Interceptor interceptor : INTERCEPTORS) {
@@ -59,7 +60,7 @@ public class RestCreator {
             return BUILDER;
         }
 
-        private static final OkHttpClient OK_HTTP_CLIENT = addInterceptor()
+        private static final OkHttpClient OK_HTTP_CLIENT = BUILDER
                 .connectTimeout(TIME_OUT, TimeUnit.SECONDS)
                 .build();
     }

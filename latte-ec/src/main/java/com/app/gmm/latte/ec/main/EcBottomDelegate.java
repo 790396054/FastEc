@@ -1,5 +1,7 @@
 package com.app.gmm.latte.ec.main;
 
+import android.graphics.Color;
+
 import com.app.gmm.latte.delegates.bottom.BaseBottomDelegate;
 import com.app.gmm.latte.delegates.bottom.BottomItemDelegate;
 import com.app.gmm.latte.delegates.bottom.BottomTabBean;
@@ -32,6 +34,6 @@ public class EcBottomDelegate extends BaseBottomDelegate {
 
     @Override
     public int setClickedColor() {
-        return 0;
+        return Color.parseColor("#ffff8800");
     }
 }
