@@ -6,13 +6,20 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 
 import com.app.gmm.latte.delegates.bottom.BottomItemDelegate;
 import com.app.gmm.latte.ec.R;
 import com.app.gmm.latte.ec.R2;
+import com.app.gmm.latte.net.RestClient;
+import com.app.gmm.latte.net.callBack.ISuccess;
+import com.app.gmm.latte.ui.recycler.MultipleItemEntity;
 import com.app.gmm.latte.ui.refresh.RefreshHandler;
+import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.joanzapata.iconify.widget.IconTextView;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 
@@ -38,6 +45,7 @@ public class IndexDelegate extends BottomItemDelegate {
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
         mRefreshHandler = new RefreshHandler(mRefreshLayout);
+
     }
 
     private void initRefreshLayout(){
@@ -53,7 +61,21 @@ public class IndexDelegate extends BottomItemDelegate {
     public void onLazyInitView(@Nullable Bundle savedInstanceState) {
         super.onLazyInitView(savedInstanceState);
         initRefreshLayout();
-        mRefreshHandler.firstPage("index_data.json");
+        //mRefreshHandler.firstPage("index_data.json");
+        RestClient.builder()
+                .url("index_data.json")
+                .success(new ISuccess() {
+                    @Override
+                    public void onSuccess(String response) {
+                        Log.d("TAG",response);
+                        final IndexDataConvert convert = new IndexDataConvert();
+                        convert.setJsonData(response);
+                        ArrayList<MultipleItemEntity> convert1 = convert.convert();
+                        Log.d("convert1", convert1.toString());
+                    }
+                })
+                .build()
+                .get();
     }
 
     @Override
