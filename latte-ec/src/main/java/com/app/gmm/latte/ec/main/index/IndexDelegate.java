@@ -72,6 +72,7 @@ public class IndexDelegate extends BottomItemDelegate {
                         convert.setJsonData(response);
                         ArrayList<MultipleItemEntity> convert1 = convert.convert();
                         Log.d("convert1", convert1.toString());
+
                     }
                 })
                 .build()
