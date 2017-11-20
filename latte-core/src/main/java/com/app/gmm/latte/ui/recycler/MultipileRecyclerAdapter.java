@@ -17,6 +17,7 @@ public class MultipileRecyclerAdapter extends BaseMultiItemQuickAdapter<Multiple
 
     protected MultipileRecyclerAdapter(List<MultipleItemEntity> data) {
         super(data);
+
         init();
     }
 
@@ -24,7 +25,6 @@ public class MultipileRecyclerAdapter extends BaseMultiItemQuickAdapter<Multiple
         // 添加不同的布局
         addItemType(ItemType.TEXT, R.layout.item_multiple_text);
         addItemType(ItemType.IMAGE, R.layout.item_multiple_image);
-
     }
 
     public static MultipileRecyclerAdapter create(List<MultipleItemEntity> data) {
