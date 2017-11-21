@@ -17,7 +17,6 @@ public class MultipileRecyclerAdapter extends BaseMultiItemQuickAdapter<Multiple
 
     protected MultipileRecyclerAdapter(List<MultipleItemEntity> data) {
         super(data);
-
         init();
     }
 
@@ -29,7 +28,6 @@ public class MultipileRecyclerAdapter extends BaseMultiItemQuickAdapter<Multiple
 
     public static MultipileRecyclerAdapter create(List<MultipleItemEntity> data) {
         return new MultipileRecyclerAdapter(data);
-
     }
 
     public static MultipileRecyclerAdapter create(DataConverter converter) {

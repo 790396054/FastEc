@@ -67,12 +67,10 @@ public class IndexDelegate extends BottomItemDelegate {
                 .success(new ISuccess() {
                     @Override
                     public void onSuccess(String response) {
-                        Log.d("TAG",response);
                         final IndexDataConvert convert = new IndexDataConvert();
                         convert.setJsonData(response);
                         ArrayList<MultipleItemEntity> convert1 = convert.convert();
                         Log.d("convert1", convert1.toString());
-
                     }
                 })
                 .build()
