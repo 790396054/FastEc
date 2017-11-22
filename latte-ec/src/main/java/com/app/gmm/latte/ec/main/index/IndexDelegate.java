@@ -61,7 +61,6 @@ public class IndexDelegate extends BottomItemDelegate {
     public void onLazyInitView(@Nullable Bundle savedInstanceState) {
         super.onLazyInitView(savedInstanceState);
         initRefreshLayout();
-        //mRefreshHandler.firstPage("index_data.json");
         RestClient.builder()
                 .url("index_data.json")
                 .success(new ISuccess() {
@@ -70,7 +69,7 @@ public class IndexDelegate extends BottomItemDelegate {
                         final IndexDataConvert convert = new IndexDataConvert();
                         convert.setJsonData(response);
                         ArrayList<MultipleItemEntity> convert1 = convert.convert();
-                        Log.d("convert1", convert1.toString());
+                        Log.d("convert", convert1.toString());
                     }
                 })
                 .build()
