@@ -80,4 +80,6 @@ public class IndexDelegate extends BottomItemDelegate {
     public Object setLayout() {
         return R.layout.delegate_index;
     }
+
+
 }
