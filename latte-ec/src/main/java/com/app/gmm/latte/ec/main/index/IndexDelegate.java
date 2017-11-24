@@ -76,6 +76,9 @@ public class IndexDelegate extends BottomItemDelegate {
                 .get();
     }
 
+
+
+
     @Override
     public Object setLayout() {
         return R.layout.delegate_index;
