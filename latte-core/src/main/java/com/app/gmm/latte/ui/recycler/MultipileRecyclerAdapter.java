@@ -37,6 +37,8 @@ public class MultipileRecyclerAdapter extends BaseMultiItemQuickAdapter<Multiple
     @Override
     protected void convert(MultipleViewHolder helper, MultipleItemEntity item) {
 
+
+
     }
 
     @Override
