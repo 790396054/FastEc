@@ -38,11 +38,9 @@ public class LatteProcessor extends AbstractProcessor {
     @Override
     public Set<String> getSupportedAnnotationTypes() {
         Set<String> types = new LinkedHashSet<>();
-
         for (Class<? extends Annotation> annotation : getSupportedAnnotations()) {
             types.add(annotation.getCanonicalName());
         }
-
         return types;
     }
 
