@@ -86,4 +86,8 @@ public class LatteProcessor extends AbstractProcessor {
         visitor.setFiler(processingEnv.getFiler());
         scan(environment, AppRegisterGenerator.class, visitor);
     }
+
+
+
+
 }
