@@ -39,7 +39,6 @@ public final class PayEntryVisitor extends SimpleAnnotationValueVisitor7<Void, V
         generateJavaCode();
         return p;
     }
-
     // 生成 java 文件
     private void generateJavaCode() {
         final TypeSpec targetActivity = TypeSpec.classBuilder("WXPayEntryActivity")
