@@ -50,6 +50,7 @@ public final class PayEntryVisitor extends SimpleAnnotationValueVisitor7<Void, V
                 .addFileComment("微信支付入口文件")
                 .build();
         try {
+
             javaFile.writeTo(mFiler);
         } catch (IOException e) {
             e.printStackTrace();
