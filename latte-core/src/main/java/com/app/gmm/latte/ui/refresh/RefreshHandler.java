@@ -51,9 +51,6 @@ public class RefreshHandler implements SwipeRefreshLayout.OnRefreshListener {
 
     @Override
     public void onRefresh() {
-
-
-
         refresh();
     }
 }
