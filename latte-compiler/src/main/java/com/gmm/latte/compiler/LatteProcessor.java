@@ -65,7 +65,6 @@ public class LatteProcessor extends AbstractProcessor {
                     entry.getValue().accept(visitor, null);
                 }
             }
-
         }
     }
 
