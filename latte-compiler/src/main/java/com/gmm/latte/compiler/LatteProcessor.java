@@ -68,6 +68,10 @@ public class LatteProcessor extends AbstractProcessor {
         }
     }
 
+
+
+
+
     private void generateEntryCode(RoundEnvironment environment) {
         final EntryVisitor entryVisitor = new EntryVisitor();
         entryVisitor.setFiler(processingEnv.getFiler());
