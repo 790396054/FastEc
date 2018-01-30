@@ -60,7 +60,6 @@ public class LatteProcessor extends AbstractProcessor {
 
             for (AnnotationMirror annotationMirror : annotationMirrors) {
                 final Map<? extends ExecutableElement, ? extends AnnotationValue> elementValues = annotationMirror.getElementValues();
-
                 for (Map.Entry<? extends ExecutableElement, ? extends AnnotationValue> entry : elementValues.entrySet()) {
                     entry.getValue().accept(visitor, null);
                 }
