@@ -32,9 +32,6 @@ public class LatteProcessor extends AbstractProcessor {
         generateEntryCode(roundEnvironment);
         generatePayEntryCode(roundEnvironment);
         generateAppRegisterCode(roundEnvironment);
-
-
-
         return true;
     }
 
