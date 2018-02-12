@@ -42,6 +42,9 @@ public class LatteProcessor extends AbstractProcessor {
             types.add(annotation.getCanonicalName());
         }
         return types;
+
+
+
     }
 
     private Set<Class<? extends Annotation>> getSupportedAnnotations() {
