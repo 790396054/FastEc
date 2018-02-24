@@ -44,8 +44,6 @@ public class LatteProcessor extends AbstractProcessor {
         return types;
     }
 
-
-
     private Set<Class<? extends Annotation>> getSupportedAnnotations() {
         Set<Class<? extends Annotation>> annotations = new LinkedHashSet<>();
 
